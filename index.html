@@ -51,9 +51,19 @@
 <script>
     const audioElement = document.querySelector('audio');
     const button = document.querySelector('a');
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256); // Valeur aléatoire entre 0 et 255 pour le Rouge
+        const g = Math.floor(Math.random() * 256); // Valeur aléatoire entre 0 et 255 pour le Vert
+        const b = Math.floor(Math.random() * 256); // Valeur aléatoire entre 0 et 255 pour le Bleu
+        return `rgb(${r}, ${g}, ${b})`;
+    }
 
     button.addEventListener('click', () => {
         audioElement.play();
+        setInterval(() => {
+            document.body.style.backgroundColor = getRandomColor()
+            document.body.style.transform = `scale(${Math.floor(Math.random() * 10)})`
+        }, 10)
     })
 </script>
 </body>
